@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.app2392224" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>app_2</name>
-  <description>&#xD;
-        An Ionic Framework and Cordova project.&#xD;
+  <name>BonAppéSEEK</name>
+  <description>
+        Many children often have specific preferences with what foods he or she consumes, which makes food selection extremely difficult for parents. For instance, a child may only eat cuisine that are dry in texture, or salty in taste, or cannot mix textures at all. Because he or she is picky to eating a limited number of foods, the child may not receive necessary nutrients to maintain a healthy body and mind.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">&#xD;
-      Ionic Framework Team&#xD;
-    </author>
+  <author email="hi@ionicframework" href="http://ionicframework.com/">
+      The Average Joes
+  </author>
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
