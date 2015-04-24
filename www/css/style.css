@@ -39,8 +39,8 @@
   z-index: 9000;
 }
 
-.main-container{
-	 background: url("../img/App Images/wooden background.png") no-repeat center center fixed; 
+.pane {
+	 background: url("../img/App Images/wooden background.png"); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
