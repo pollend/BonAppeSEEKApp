@@ -5,14 +5,14 @@
 <ion-content class="main-container" >
 <div class="content has-header padding">
   <h3 class="header-title">
-    Select your criteria
+    Select Your Criteria
   </h3>
 
 <div class="grouping">
   <div class="list">
     <label class="item item-input item-select">
       <div class="input-label">
-        Select a food characteristic
+        Seek a food Characteristic
       </div>
       <select ng-model="$parent.characteristic.term[0]" ng-change="updateSpecification(0)">
         <option value="Texture">Texture</option>
@@ -23,10 +23,10 @@
   </div>
 
 
-  <div class="list" ng-show="specifications.length > 0">
+  <div class="list" ng-show="specifications[0].length > 0">
     <label class="item item-input item-select">
       <div class="input-label">
-       Specifically
+       Seek a Type of {{$parent.characteristic.term[0]}}
       </div>
       <select ng-model="$parent.specifically[0]">
          <option ng-repeat="specfic in specifications[0]"  value="{{specfic.id}}"> {{specfic.value}}</option>
@@ -36,13 +36,13 @@
   </div>
 
  <button class="button button-block button-clear" ng-show="!showSecond" style="color:black" ng-click="showSecond = true">
-    Select Another Characteristic
+    Seek Another Characteristic
   </button>
 <div ng-show="showSecond" class="grouping">
     <div class="list">
       <label class="item item-input item-select">
         <div class="input-label">
-          Select another characteristic
+          Seek another characteristic
         </div>
         <select ng-model="$parent.characteristic.term[1]" ng-change="updateSpecification(1)">
           <option value="Texture">Texture</option>
@@ -51,10 +51,10 @@
         </select>
       </label>
     </div>
-    <div class="list" ng-show="specifications.length > 0">
+    <div class="list" ng-show="specifications[1].length > 0">
       <label class="item item-input item-select">
         <div class="input-label">
-          Specifically
+           Seek a Type of {{$parent.characteristic.term[1]}}
         </div>
         <select ng-model="$parent.specifically[1]">
           <option ng-repeat="specfic in specifications[1]"  value="{{specfic.id}}"> {{specfic.value}}</option>
