@@ -1,5 +1,8 @@
 app.controller("pecBoardController", function($window, $scope, $stateParams, $location) {
     var pecboard_food = JSON.parse($window.localStorage.getItem("food"));
+    if (!pecboard_food)
+        pecboard_food = {};
+
     $scope.pecBoardItems = pecboard_food;
     $scope.keys = Object.keys($scope.pecBoardItems);
 

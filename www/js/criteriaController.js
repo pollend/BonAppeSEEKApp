@@ -1,12 +1,19 @@
-app.controller("criteriaController", function($scope, $stateParams, $location) {
-    $scope.specifications = [];
+app.controller("criteriaController", function($scope, $stateParams, $location, $state) {
+
+    $scope.showSecond = false;
+    $scope.specifications = [, ];
     $scope.submit = function() {
-        $location.url("/foodSuggestion/" + $scope.meal + "/" + $scope.specifically);
+        //$location.url("/foodSuggestion/" + $scope.meal + "/" + $scope.specifically);
+
+        $state.go('foodSuggestion-view', {
+            meal: $scope.meal,
+            features: $scope.specifically
+        });
     }
 
-    $scope.updateSpecification = function() {
-        if ($scope.characteristic.term == "Texture") {
-            $scope.specifications = [{
+    $scope.updateSpecification = function(index) {
+        if ($scope.characteristic.term[index] == "Texture") {
+            $scope.specifications[index] = [{
                 value: "Dry",
                 id: 1
             }, {
@@ -23,8 +30,8 @@ app.controller("criteriaController", function($scope, $stateParams, $location) {
                 id: 5
             }];
 
-        } else if ($scope.characteristic.term == "Taste") {
-            $scope.specifications = [{
+        } else if ($scope.characteristic.term[index] == "Taste") {
+            $scope.specifications[index] = [{
                 value: "Sweet",
                 id: 6
             }, {
@@ -38,8 +45,8 @@ app.controller("criteriaController", function($scope, $stateParams, $location) {
                 id: 9
             }];
 
-        } else if ($scope.characteristic.term == "Color") {
-            $scope.specifications = [{
+        } else if ($scope.characteristic.term[index] == "Color") {
+            $scope.specifications[index] = [{
                 value: "Red",
                 id: 10
             }, {

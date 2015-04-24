@@ -1,31 +1,36 @@
 app.controller("foodSuggestionController", function($window, $http, $scope, $stateParams, $location) {
     $scope.foods = {};
 
+    console.log($stateParams);
+
     var pecboard_food = JSON.parse($window.localStorage.getItem("food"));
     if (!pecboard_food)
         pecboard_food = {};
 
-    $http.get(URL + 'rest/food?mealId=' + $stateParams.meal + '&featureId=' + $stateParams.feature, {}).
-    success(function(data, status, headers, config) {
-        console.log(data);
-        for (var i = 0; i < data.data.length; i++) {
-            if (!pecboard_food.hasOwnProperty("food-" + data.data[i].id)) {
-                $scope.foods["food-" + data.data[i].id] = {
-                    entry: data.data[i],
-                    pecboard: true
-                };
-            } else {
-                $scope.foods["food-" + data.data[i].id] = {
-                    entry: data.data[i],
-                    pecboard: false
-                };
-            }
-        };
+    for (var x = 0; x < Object.keys($stateParams.features).length; x++) {
 
-        //$scope.foods = data.data;
-    }).error(function(data, status, headers, config) {
+        $http.get(URL + 'rest/food?mealId=' + $stateParams.meal + '&featureId=' + $stateParams.features[x], {}).
+        success(function(data, status, headers, config) {
+            console.log(data);
+            for (var i = 0; i < data.data.length; i++) {
+                if (!pecboard_food.hasOwnProperty("food-" + data.data[i].id)) {
+                    $scope.foods["food-" + data.data[i].id] = {
+                        entry: data.data[i],
+                        pecboard: true
+                    };
+                } else {
+                    $scope.foods["food-" + data.data[i].id] = {
+                        entry: data.data[i],
+                        pecboard: false
+                    };
+                }
+            };
 
-    });
+            //$scope.foods = data.data;
+        }).error(function(data, status, headers, config) {
+
+        });
+    }
 
 
     $scope.viewFoodItem = function(id) {

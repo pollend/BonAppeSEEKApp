@@ -3,6 +3,16 @@
     src: url(../img/Fonts/circlegordita.ttf);
 }
 
+.grouping{
+  margin: 15px 0px;
+
+}
+
+.grouping .list{
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
 /* Empty. Add your own CSS if you like */
 .autism-app-largeicon{
 	font-size: 30px;
